@@ -1,4 +1,7 @@
 version: "3.9"
+networks:
+  default:
+    name: op-devnet-network
 services:
   # Creates a genesis state for the beacon chain using a YAML configuration file and
   # a deterministic set of 64 validators.
@@ -89,6 +92,7 @@ services:
       - --http.api=eth,net,web3,debug
       - --http.addr=0.0.0.0
       - --http.corsdomain=*
+      - --http.vhosts=*
       - --ws
       - --ws.api=eth,net,web3
       - --ws.addr=0.0.0.0
